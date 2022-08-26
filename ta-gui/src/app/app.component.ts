@@ -14,16 +14,21 @@ export class AppComponent {
   title = 'ta-gui';
   aluno: Aluno = {nome: "", cpf: "", email: "", login_git_hub: ""};
   alunoService = new AlunoService();
+  alunos: Aluno[] = [];
+  cpfduplicado: boolean = false;
+
   gravar(a: Aluno): void {
     if(this.alunoService.gravar(a)){
       this.alunos.push(a);
       this.aluno = {nome: "", cpf: "", email: "", login_git_hub: ""}
     } else {
-      this.aluno.cpf = "";
-      alert("Já existe um aluno com esse CPF")
+      this.cpfduplicado = true;
     }
   }
-  alunos: Aluno[] = [];
+
+  onMove(): void{
+    this.cpfduplicado = false;
+  }
 }
 
 
