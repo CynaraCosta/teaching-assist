@@ -332,7 +332,7 @@
 <h2>
   Alunos
 </h2>
-
+<!-- 
 <table>
 <tr>
    <td><label>Nome </label></td>
@@ -350,7 +350,34 @@
   <td><label>login git hub </label></td>
   <td><input [(ngModel)]="aluno.login_git_hub" ></td>
 </tr>
-</table>
+</table> -->
+
+<tr>
+  <td><label>Nome </label></td>
+  <td><input [(ngModel)]="aluno.nome" ></td>
+  
+</tr>
+<tr>
+  <td><label>CPF </label></td>
+  <td><input [(ngModel)]="aluno.cpf" ></td>
+</tr>
+<tr>
+  <td><label>Email </label></td>
+  <td><input [(ngModel)]="aluno.email" ></td>
+  <td><button (click)="gravar(aluno)">Adicionar</button></td>
+</tr>
+
+<table>
+
+<ul class="alunos">
+  <li *ngFor="let a of alunos">
+      <span>{{a.nome}}</span>,
+      <span>{{a.cpf}}</span>,
+      <span>{{a.email}}</span>
+  </li>
+  </ul> 
+
+  </table>
 
 <div class="content" role="main">
 
