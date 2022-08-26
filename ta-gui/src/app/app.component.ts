@@ -11,16 +11,16 @@ import { AlunoService } from './aluno.service';
 })
 
 export class AppComponent {
+  constructor(private alunoService: AlunoService) {}
   title = 'ta-gui';
-  aluno: Aluno = {nome: "", cpf: "", email: "", login_git_hub: ""};
-  alunoService = new AlunoService();
+  aluno: Aluno = new Aluno();
   alunos: Aluno[] = [];
   cpfduplicado: boolean = false;
 
-  gravar(a: Aluno): void {
-    if(this.alunoService.gravar(a)){
+  criarAluno(a: Aluno): void {
+    if(this.alunoService.criarAluno(a)){
       this.alunos.push(a);
-      this.aluno = {nome: "", cpf: "", email: "", login_git_hub: ""}
+      this.aluno = new Aluno();
     } else {
       this.cpfduplicado = true;
     }
@@ -29,6 +29,7 @@ export class AppComponent {
   onMove(): void{
     this.cpfduplicado = false;
   }
+
 }
 
 
